@@ -13,7 +13,7 @@ class linuxCpu extends LnmpCheck {
     public $fall = true;
     public function check(){
         
-        $arrRes = Utils::get_cmd_res_split('vmstat 1 2'); //计算最近的2s
+        $arrRes = Utils::get_cmd_res_split('vmstat 1 2'); //计算最近的1s
         $idle = $arrRes[3][15];
         if($idle < 20) {
             $msg = "idle:{$idle}";
