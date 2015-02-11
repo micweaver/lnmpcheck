@@ -8,6 +8,7 @@ lnmpcheck很容易进行扩展添加新的检查项，另外也可以对已有�
 - 磁盘占用
 - inode使用
 - CPU
+  
   包括CPU idle,CPU负载，CPU在IO时花费的时间比
 - 内存
   包括内存占用比，swap交换数
