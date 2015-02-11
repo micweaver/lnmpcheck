@@ -1,5 +1,5 @@
 # lnmpcheck
-lnmp环境检测工具，检测部署linux,nginx,php,mysql服务机器的问题.通过运行lnmpcheck脚本，就可以将lnmp环境中的各种问题报告出来，如磁盘满了、cpu负载过高、磁盘IO过高、网络出现了问题、遭遇了synflood攻击、php进程hang在了某个地方等等,甚至还会检查nginx文件日志是否异常。与监控工具不同的是，lnmpcheck能够直接指明问题所在，主要用于对一台已出现服务异常的机器进行具体问题的排查。
+lnmp环境检测工具，检测部署linux,nginx,php,mysql服务机器的问题。通过运行lnmpcheck脚本，就可以将lnmp环境中的各种问题报告出来，如磁盘满了、cpu负载过高、磁盘IO过高、网络出现了问题、遭遇了synflood攻击、php进程hang在了某个地方等等,甚至还会检查nginx文件日志是否异常。与监控工具不同的是，lnmpcheck能够直接指明问题所在，主要用于对一台已出现服务异常的机器进行具体问题的排查。
 
 lnmpcheck很容易进行扩展添加新的检查项，另外也可以对已有的检测项添加自己的特殊的版本而不影响原来的版本。
 
@@ -42,23 +42,26 @@ lnmpcheck很容易进行扩展添加新的检查项，另外也可以对已有�
   通过show processlist命令检查mysql正在进行操作处理的线程数
 
 lnmpcheck的检查是多维度的，例如为了检查I/O是否达到了瓶颈，不但检查I/O使用率数值，也会关心 I/O总共花费时间与实际I/O操作所花费时间比(await/svctm),如果这个比值过大，说明I/O请求在队列中等待的时间过长，达到了I/O处理的瓶颈。
-
+  
+  
+  
 ###**使用方法**
 
 lnmpcheck用php开发，下载所有php文件，命令行下执行start.php脚本文件即可:
->[root@xsl1x-nova ~/lnmpcheck]# php start.php 
->checking......
->
->sda1 : 20.00, percentage of CPU time during which I/O requests were issued to the device, the IO is too high
->\------------------------------
->
->\*******************
->check completed
->\*******************
+>[root@xsl1x-nova ~/lnmpcheck]# php start.php  
+>checking......  
+>  
+>sda1 : 20.00, percentage of CPU time during which I/O requests were issued to the device, the IO is too high  
+>\------------------------------  
+>  
+>\*******************  
+>check completed  
+>\*******************  
 
 执行完毕会将检查到的问题一项项打印出来。最好以root用户执行，有些检测项需要root权限，用其它帐号会导致这些检测项无效。
 
-
+  
+ 
 ###**添加新的检查项**
 
 目前已有的检测项只是最常需要检测的问题，还有许多其它问题需要检测，这只需要添加一个php文件放到checkitems目录下即可，以检查cpu负载的代码为例，在checkitems/linuxCpuLoad.php 文件中实现，基本代码结构如下:
