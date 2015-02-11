@@ -1,9 +1,9 @@
 <?php  
 /**
  * @file        linuxHardDisk.php
- * @author       zhonghuali241@163.com
+ * @author     zhonghuali241@163.com
  * @date        2015-1-23
- * @desc      磁盘空间占用检查
+ * @desc      磁盘空间及inode占用检查
  */
 
 

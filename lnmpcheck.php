@@ -1,7 +1,7 @@
 <?php  
 /**
  * @file        lnmpcheck.php
- * @author       zhonghuali241@163.com
+ * @author     zhonghuali241@163.com
  * @date        2015-1-21
  * @desc
  */

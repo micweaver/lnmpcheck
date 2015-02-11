@@ -1,19 +1,18 @@
 <?php  
 /**
  * @file        linuxMemory.php
- * @author       zhonghuali241@163.com
+ * @author     zhonghuali241@163.com
  * @date        2015-1-23
- * @desc
+ * @desc    内存占用检查
  */
 
 class linuxMemroy extends LnmpCheck {
     
     public $priority = 3;
-    //参考 http://www.cnblogs.com/coldplayerest/archive/2010/02/20/1669949.html
     public function check(){
         
         $arrRes = Utils::get_cmd_res_split('free');
-       
+
         $total = $arrRes[1][1];
         $free = $arrRes[2][3];
         
@@ -24,9 +23,11 @@ class linuxMemroy extends LnmpCheck {
             $total=round($total/1024,0);
             $used=round($used/1024,0);
             $free=round($free/1024,0);
-            $msg = "total: {$total}M,  used:{$used}M, free:{$free}M, {$use_ratio}% used";
+            $msg = "Memory, total: {$total}M,  used:{$used}M, free:{$free}M, {$use_ratio}% used";
             Utils::print_error($msg);
         }
+        
+        //是否要加下swap使用率
         
     }
 }

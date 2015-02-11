@@ -1,14 +1,14 @@
 <?php  
 /**
  * @file        engine.php
- * @author       zhonghuali241@163.com
+ * @author     zhonghuali241@163.com
  * @date        2015-1-21
  * @desc
  */
 
 require('lnmpcheck.php');
 require('lib/utils.php');
-
+require('config.php');
 
 class Engine {
     
@@ -47,6 +47,8 @@ class Engine {
            }
          
            usort($this->objset, array($this,'cmp'));
+           
+           echo "checking......\n\n";
            foreach ($this->objset as $obj){
                if(method_exists($obj, 'check')) {
                    $res = $obj->check();
@@ -62,6 +64,8 @@ class Engine {
                }
                
            }
+           
+            echo "\n*****************\ncheck completed\n*****************\n";
             closedir($handle);
         }
         
