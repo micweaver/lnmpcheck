@@ -62,7 +62,7 @@ lnmpcheck用php开发，下载所有php文件，命令行下执行start.php脚�
 
   
  
-###**添加新的检查项**
+###**添加新的检测项**
 
 目前已有的检测项只是最常需要检测的问题，还有许多其它问题需要检测，这只需要添加一个php文件放到checkitems目录下即可，以检查cpu负载的代码为例，在checkitems/linuxCpuLoad.php 文件中实现，基本代码结构如下:
 
