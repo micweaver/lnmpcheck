@@ -25,9 +25,9 @@ lnmpcheck很容易进行扩展添加新的检查项，另外也可以对已有�
 - synflood攻击  
   检测系统是否遭到了synflood攻击
 - nginx压力  
-  通过网络连接数来估值nginx并发度
-  并发度= 请求处理时间 * QPS
-  进而评估nginx是否压力过大
+  通过网络连接数来估值nginx并发度  
+  *并发度= 请求处理时间 \* QPS*  
+  进而评估nginx是否压力过大  
 - php压力  
   评估方式类似nginx压力
 - nginx存活  
